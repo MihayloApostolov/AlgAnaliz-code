@@ -47,9 +47,9 @@ int main()
 		cout << array[i] << ", ";
 	}
 
-	startTime();//Начало на измерването
+	startTime();//Nachalo na izmervaneto
 	combSort(array, 500);
-	endTime();//Край на измерването
+	endTime();//Krai na izmervaneto
 
 	cout << endl;
 	cout << "Masiva sled sortirane: " << ", ";
