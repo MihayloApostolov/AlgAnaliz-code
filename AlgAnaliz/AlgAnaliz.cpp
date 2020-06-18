@@ -3,19 +3,65 @@
 
 #include "pch.h"
 #include <iostream>
+#include<time.h>
+
+using namespace std;
+
+clock_t time1, time2;
+double difference;
+
+double startTime()
+{
+	time1 = clock();
+	return (double)time1;
+};
+
+double endTime()
+{
+	time2 = clock();
+	return (double)time2;
+};
+
+double timePassed()
+{
+	difference = time2 - time1;
+	return difference;
+};
+void combSort(int array[], int length);
+int shellSort(int arr[], int n);
+void insertionSort(int arr[], int n);
+void CocktailSort(int a[], int n);
+void bubbleSort(int arr[], int n);
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	int array[500];
+	for (int i = 0; i < 500; i++)
+	{
+		array[i] = rand() % 500;
+	}
+
+	cout << "Masiv predi sortirane:" << endl;
+	for (int i = 0; i < 500; i++)
+	{
+		cout << array[i] << ", ";
+	}
+
+	startTime();//Начало на измерването
+	combSort(array, 500);
+	endTime();//Край на измерването
+
+	cout << endl;
+	cout << "Masiva sled sortirane: " << ", ";
+	for (int i = 0; i < 500; i++)
+	{
+		cout << array[i] << ", ";
+	}
+	cout << endl;
+	cout << "Vremetraene na sortiraneto: " << timePassed() / 1000 << endl;
+	cout << endl;
+
+	system("pause");
+	return 0;
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
